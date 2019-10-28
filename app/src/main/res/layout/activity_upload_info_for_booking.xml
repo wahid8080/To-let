@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadData.UploadInfoForBooking">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/your_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Your Name"
+                android:inputType="textPersonName"
+                android:imeOptions="actionDone"></AutoCompleteTextView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/your_phone"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Your Phone Numer"
+                android:inputType="number"
+                android:imeOptions="actionDone"></AutoCompleteTextView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/your_age"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="number"
+                android:hint="Your Age"
+                android:imeOptions="actionDone"></AutoCompleteTextView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/how_many_month"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="How many month you stay here"
+                android:imeOptions="actionDone"></AutoCompleteTextView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/informationSubmit"
+            android:layout_marginTop="20dp"
+            android:text="Information Submit"
+            android:inputType="textAutoCorrect"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/btn_background"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Easy Rent</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="what_you_are">
+        <item>Select Your Type</item>
+        <item>Owner</item>
+        <item>Renter</item>
+    </string-array>
+</resources>

@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "43163276536",
+    "firebase_url": "https://toletdatabase.firebaseio.com",
+    "project_id": "toletdatabase",
+    "storage_bucket": "toletdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43163276536:android:ec52375aa8ff340f73170d",
+        "android_client_info": {
+          "package_name": "com.example.goolemap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43163276536-n167fnea6461r0h7643ds535npor6h32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.goolemap",
+            "certificate_hash": "c59519c4a7825bde0750184dd52d06bbd51be010"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd48G7PjMoCciutD6uZWBdg1XQCECB7S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43163276536:android:3efd1795c4d33d8a73170d",
+        "android_client_info": {
+          "package_name": "com.example.tolet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd48G7PjMoCciutD6uZWBdg1XQCECB7S8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

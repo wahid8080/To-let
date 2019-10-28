@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <androidx.appcompat.widget.SearchView
+        android:background="@drawable/button_background4"
+        android:layout_margin="5dp"
+        android:id="@+id/flatSearchId"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_toRightOf="@id/goToMapActivity">
+
+    </androidx.appcompat.widget.SearchView>
+
+
+    <Button
+        android:paddingLeft="10dp"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_map_icon"
+        android:background="@drawable/btn_background3"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:text="Map"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:id="@+id/goToMapActivity"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/goToMapActivity"
+        android:id="@+id/recyclerViewForFlat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_black_24dp"/>
+
+</RelativeLayout>

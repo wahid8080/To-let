@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UploadData.UploadRoomOrFlat">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/mLayout1"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="225dp">
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image1"
+                    android:layout_weight="1"
+                    android:src="@drawable/blank_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image2"
+                    android:layout_weight="1"
+                    android:src="@drawable/blank_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/mLayout2"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="225dp">
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image3"
+                    android:layout_weight="1"
+                    android:src="@drawable/blank_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    android:id="@+id/image4"
+                    android:layout_weight="1"
+                    android:src="@drawable/blank_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_gravity="center_horizontal"
+                        android:drawableLeft="@drawable/ic_camera_alt_black_24dp"
+                        android:id="@+id/upload"
+                        android:onClick="imageUpload"
+                        android:textColor="#FFFFFF"
+                        android:text="Upload Image"
+                        android:textAllCaps="false"
+                        android:background="@drawable/btn_background"
+                        android:layout_marginBottom="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                    <CheckBox
+                        android:id="@+id/familyId"
+                        android:textSize="18dp"
+                        android:text="Family"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:id="@+id/bachelorId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Bachelor "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/otherId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/razukId"
+                        android:textSize="18dp"
+                        android:text="Rajuk approval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:id="@+id/gateGardId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Gate Gard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/internetId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Internet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/waterLineId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Water Line"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/geneterId"
+                        android:layout_marginTop="20dp"
+                        android:textSize="18dp"
+                        android:text="Generator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Unit/Flat/Room No : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/flatOrRoomId"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="Contact : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/contuctUploadProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="House Name : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="text"
+                        android:id="@+id/houseNameUploadProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="House Area : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="text"
+                        android:id="@+id/houseAreaUploadProduct"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="Road Name / No : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="text"
+                        android:id="@+id/roadNumberUploadProduct"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="House Number : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="date"
+                        android:id="@+id/houseNumber"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <TextView
+                        android:text="Price"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/housePrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+
+                    <TextView
+                        android:text="House Details : "
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="16dp"
+                        android:textSize="18dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="text"
+                        android:gravity="top"
+                        android:id="@+id/houseDetailsUploadProduct"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp" />
+
+                    <Button
+                        android:id="@+id/uploadRoomFlatId"
+                        android:enabled="false"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/btn_background"
+                        android:onClick="submitData"
+                        android:textColor="@color/colorWhite"
+                        android:text="Submit"
+                        android:visibility="visible"
+                        android:layout_marginBottom="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:textSize="20dp"/>
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

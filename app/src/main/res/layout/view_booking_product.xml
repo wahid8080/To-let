@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/callIcon"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_telephone"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+                    <ImageView
+                        android:id="@+id/removeIcon"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_delete"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+                    <ImageView
+                        android:id="@+id/bookingIcon"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_error"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"/>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:weightSum="3"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="House"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="Name"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="Phone "
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="Age "
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="Unit No"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="I will stay "
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="#333333"
+                            android:layout_margin="5dp"
+                            android:text="Customer "
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/houseName"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/customerName"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/customerPhone"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/customerAge"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/flatRoomNo"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/how_many_time"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_margin="5dp"
+                            android:id="@+id/bookingStatus"
+                            android:textSize="18dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</LinearLayout>
