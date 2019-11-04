@@ -33,11 +33,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private DatabaseReference mUsers;
-    Marker marker;
     String key;
-    private List<Double> latitude;
-    private List<Double> longitude;
-    private List<String> titel;
 
     LatLng location1;
 
@@ -48,10 +44,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         key = getIntent().getStringExtra("key");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        latitude = new ArrayList<>();
-        longitude = new ArrayList<>();
-        titel = new ArrayList<>();
 
 
 

@@ -115,18 +115,26 @@
                     android:layout_height="wrap_content" />
                 <TextView
 
-                    android:text="Category"
+                    android:text="Category 1"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
 
-                    android:text="Details"
+                    android:text="Category 2"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+                <TextView
+
+                    android:text="Category 3"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
                 <TextView
                     android:text="Price"
                     android:textSize="18dp"
@@ -134,10 +142,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
+                <TextView
+
+                    android:text="Details"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
+
             </LinearLayout>
 
             <LinearLayout
-                android:weightSum="1"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -171,19 +187,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/category"
-                    android:text="Category"
+                    android:id="@+id/family"
+                    android:text="family"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
                 <TextView
-                    android:id="@+id/houseDetails"
-                    android:text="Details"
+                    android:id="@+id/bachelor"
+                    android:text="Bachelor"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/other"
+                    android:text="Other"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
                 <TextView
                     android:id="@+id/housePrice"
                     android:text="Price"
@@ -191,6 +218,14 @@
                     android:layout_margin="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/houseDetails"
+                    android:text="Details"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp" />
 
             </LinearLayout>
         </LinearLayout>

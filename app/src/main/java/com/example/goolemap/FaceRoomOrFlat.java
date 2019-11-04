@@ -28,8 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 public class FaceRoomOrFlat extends AppCompatActivity {
 
     private ImageView mImg1, mImg2, mImg3, mImg4;
-    private TextView houseName, area, phone, category, roadNo, details, price;
-    private String nameOfHouse, priceOfHouse, areaOfHouse, categoryOfHouse,
+    private TextView houseName, area, phone, bachelorForText,otherForText,familyFortext, roadNo, details, price;
+    private String nameOfHouse, priceOfHouse, areaOfHouse, bachelor,other,family,
             detailOfHouse, roadOfHouse, phoneOfHouse, img1, img2, img3, img4, book, uId, flatNo, key, customerId;
     private Bitmap bitmap1, bitmap2, bitmap3, bitmap4;
     private Button bookNow, callNow;
@@ -50,7 +50,9 @@ public class FaceRoomOrFlat extends AppCompatActivity {
         houseName = findViewById(R.id.houseName);
         area = findViewById(R.id.areaTana);
         phone = findViewById(R.id.housePhone);
-        category = findViewById(R.id.category);
+        bachelorForText = findViewById(R.id.bachelor);
+        otherForText = findViewById(R.id.other);
+        familyFortext = findViewById(R.id.family);
         roadNo = findViewById(R.id.roadNo);
         details = findViewById(R.id.houseDetails);
         price = findViewById(R.id.housePrice);
@@ -62,7 +64,12 @@ public class FaceRoomOrFlat extends AppCompatActivity {
         nameOfHouse = getIntent().getStringExtra("houseName");
         priceOfHouse = getIntent().getStringExtra("price");
         areaOfHouse = getIntent().getStringExtra("area");
-        categoryOfHouse = getIntent().getStringExtra("category");
+
+        family = getIntent().getStringExtra("family");
+        other = getIntent().getStringExtra("other");
+        bachelor = getIntent().getStringExtra("bachelor");
+
+
         detailOfHouse = getIntent().getStringExtra("details");
         roadOfHouse = getIntent().getStringExtra("road");
         phoneOfHouse = getIntent().getStringExtra("phone");
@@ -102,7 +109,13 @@ public class FaceRoomOrFlat extends AppCompatActivity {
         houseName.setText(nameOfHouse);
         phone.setText(phoneOfHouse);
         area.setText(areaOfHouse);
-        category.setText(categoryOfHouse);
+
+        bachelorForText.setText(bachelor);
+        otherForText.setText(other);
+        familyFortext.setText(family);
+
+
+
         roadNo.setText(roadOfHouse);
         details.setText(detailOfHouse);
         price.setText(priceOfHouse);

@@ -72,7 +72,12 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
                 intent.putExtra("houseName", roomFlat.getHouseName());
                 intent.putExtra("price", roomFlat.getPrice());
                 intent.putExtra("area", roomFlat.getArea());
-                intent.putExtra("category", roomFlat.getBachelor());
+
+                intent.putExtra("other", roomFlat.getOther());
+                intent.putExtra("family", roomFlat.getFamily());
+                intent.putExtra("bachelor", roomFlat.getBachelor());
+
+
                 intent.putExtra("details", roomFlat.getDetails());
                 intent.putExtra("road", roomFlat.getRoadNo());
                 intent.putExtra("phone", roomFlat.getPhoneNumber());
