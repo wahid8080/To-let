@@ -27,6 +27,7 @@ import com.example.goolemap.UploadData.UploadRenderInfo;
 import com.example.goolemap.UploadData.UploadRoomOrFlat;
 import com.example.goolemap.YourRent;
 import com.example.goolemap.YourRentOwner;
+import com.example.goolemap.YourWishList;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,10 +46,11 @@ public class FragmentHome extends Fragment {
     private Bitmap bitmap;
     private ScrollView renterScrollView,ownerScrollView;
 
+
     private ImageView profilePicRenter;
     private TextView district, thana, phone, email, nid, userNameRenter;
     private Bitmap bitmapRenter;
-    private Button button,button4;
+    private Button button,button4,wishList;
 
 
     public FragmentHome() {
@@ -71,6 +73,7 @@ public class FragmentHome extends Fragment {
         userName = v.findViewById(R.id.nameForOwner);
         button = v.findViewById(R.id.button3);
         button4 = v.findViewById(R.id.button4);
+        wishList = v.findViewById(R.id.wishList);
 
         renterScrollView = v.findViewById(R.id.renter);
         ownerScrollView = v.findViewById(R.id.owner);
@@ -163,6 +166,14 @@ public class FragmentHome extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        wishList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), YourWishList.class);
+                getActivity().startActivity(intent);
             }
         });
 
