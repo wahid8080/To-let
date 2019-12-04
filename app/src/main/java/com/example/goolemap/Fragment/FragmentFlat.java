@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.goolemap.Adepter.ProductAdepter;
+import com.example.goolemap.Authorization.Login;
 import com.example.goolemap.MapsActivity;
 import com.example.goolemap.Model.Status;
 import com.example.goolemap.Model.UploadRoomFlat;
@@ -78,9 +79,21 @@ public class FragmentFlat extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),UploadRoomOrFlat.class);
-                intent.putExtra("key","Flat");
-                getActivity().startActivity(intent);
+
+                if (user==null)
+                {
+                    Intent intent = new Intent(getActivity(), Login.class);
+                    getActivity().startActivity(intent);
+                    getActivity().finish();
+                }
+                else
+                {
+                    Intent intent = new Intent(getActivity(),UploadRoomOrFlat.class);
+                    intent.putExtra("key","Flat");
+                    getActivity().startActivity(intent);
+                }
+
+
             }
         });
 
@@ -105,26 +118,35 @@ public class FragmentFlat extends Fragment {
             }
         });
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Status").child(user.getUid());
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("RestrictedApi")
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Status status = dataSnapshot.getValue(Status.class);
 
-                if (status.getRenter().equals("renter"))
-                {
-                    floatingActionButton.setVisibility(View.GONE);
-                    searchView.setVisibility(View.VISIBLE);
+        try {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Status").child(user.getUid());
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @SuppressLint("RestrictedApi")
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Status status = dataSnapshot.getValue(Status.class);
+
+                    if (status.getRenter().equals("renter"))
+                    {
+                        floatingActionButton.setVisibility(View.GONE);
+                        searchView.setVisibility(View.VISIBLE);
+                    }
+
                 }
 
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                }
+            });
 
-            }
-        });
+        } catch (Exception e)
+        {
+
+        }
+
+
 
         return v;
     }

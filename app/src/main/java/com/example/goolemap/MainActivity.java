@@ -17,12 +17,14 @@ import com.example.goolemap.Fragment.FragmentRoom;
 import com.example.goolemap.Fragment.FragmentHome;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPageAdepter pageAdepter;
+    private FirebaseUser user;
 
 
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         tabLayout = findViewById(R.id.tabLayoutId);
         viewPager = findViewById(R.id.viewPagerId);
@@ -63,9 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle item selection
         switch (item.getItemId()) {
+
+
             case R.id.logout:
+
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainActivity.this, Login.class));
                 finish();

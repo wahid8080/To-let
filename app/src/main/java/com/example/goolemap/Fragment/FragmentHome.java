@@ -12,10 +12,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.goolemap.Authorization.Login;
 import com.example.goolemap.Model.Status;
 import com.example.goolemap.Model.UploadClintInfoModel;
 
@@ -50,7 +53,7 @@ public class FragmentHome extends Fragment {
     private ImageView profilePicRenter;
     private TextView district, thana, phone, email, nid, userNameRenter;
     private Bitmap bitmapRenter;
-    private Button button,button4,wishList;
+    private Button button,button4,wishList,login;
 
 
     public FragmentHome() {
@@ -65,6 +68,11 @@ public class FragmentHome extends Fragment {
         profilePic = v.findViewById(R.id.ProfilePicIdForOwner);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        login = v.findViewById(R.id.loginButtonId);
+        if (user == null)
+        {
+            login.setVisibility(View.VISIBLE);
+        }
         mArea = v.findViewById(R.id.ownerAreaid);
         mRoad = v.findViewById(R.id.ownerRoadNoId);
         mHouseNumber = v.findViewById(R.id.ownerHouseId);
@@ -74,6 +82,8 @@ public class FragmentHome extends Fragment {
         button = v.findViewById(R.id.button3);
         button4 = v.findViewById(R.id.button4);
         wishList = v.findViewById(R.id.wishList);
+
+
 
         renterScrollView = v.findViewById(R.id.renter);
         ownerScrollView = v.findViewById(R.id.owner);
@@ -87,93 +97,123 @@ public class FragmentHome extends Fragment {
         profilePicRenter = v.findViewById(R.id.ProfilePicIdForRenderId);
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Status").child(user.getUid());
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Status status = dataSnapshot.getValue(Status.class);
 
-                if (status.getRenter().equals("renter"))
-                {
-                    renterScrollView.setVisibility(View.VISIBLE);
-                    databaseReference3 = FirebaseDatabase.getInstance().getReference("User").child("renter").child(user.getUid());
+        try {
+            databaseReference = FirebaseDatabase.getInstance().getReference().child("Status").child(user.getUid());
 
-                    databaseReference3.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            UploadClintInfoModel Model = dataSnapshot.getValue(UploadClintInfoModel.class);
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Status status = dataSnapshot.getValue(Status.class);
 
-                            try {
-                                userNameRenter.setText("Name: " + Model.getName());
-                                district.setText("District: " + Model.getDistric());
-                                thana.setText("Thana: " + Model.getArea());
-                                phone.setText("Phone: " + Model.getPhone());
-                                email.setText("Email: " + user.getEmail());
-                                nid.setText("N ID: " + Model.getNid());
-                                bitmapRenter = StringToBitMap(Model.getImage());
-                                profilePicRenter.setImageBitmap(bitmapRenter);
-                            } catch (Exception e) {
-                                Intent intent = new Intent(getActivity(), UploadRenderInfo.class);
-                                getActivity().startActivity(intent);
+                    if (status.getRenter().equals("renter"))
+                    {
+                        renterScrollView.setVisibility(View.VISIBLE);
+                        ownerScrollView.setVisibility(View.GONE);
+
+                        databaseReference3 = FirebaseDatabase.getInstance().getReference("User").child("renter").child(user.getUid());
+
+                        databaseReference3.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                UploadClintInfoModel Model = dataSnapshot.getValue(UploadClintInfoModel.class);
+
+                                try {
+                                    userNameRenter.setText("Name: " + Model.getName());
+                                    district.setText("District: " + Model.getDistric());
+                                    thana.setText("Thana: " + Model.getArea());
+                                    phone.setText("Phone: " + Model.getPhone());
+                                    email.setText("Email: " + user.getEmail());
+                                    nid.setText("N ID: " + Model.getNid());
+                                    bitmapRenter = StringToBitMap(Model.getImage());
+                                    profilePicRenter.setImageBitmap(bitmapRenter);
+                                } catch (Exception e) {
+                                    Toast.makeText(getActivity(),"You are not login",Toast.LENGTH_SHORT).show();
+                                }
+
                             }
 
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
 
 
-                        }
-                    });
+                            }
+                        });
+                    }
+                    else if (status.getOwner().equals("owner"))
+                    {
+                        renterScrollView.setVisibility(View.GONE);
+                        ownerScrollView.setVisibility(View.VISIBLE);
+                        databaseReference2 = FirebaseDatabase.getInstance().getReference("User").child("owner").child(user.getUid());
+                        databaseReference2.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                UserInformation information = dataSnapshot.getValue(UserInformation.class);
+
+                                try {
+                                    userName.setText("Name: " + information.getUserName());
+                                    mRoad.setText("Road : " + information.getRoad());
+                                    mHouseNumber.setText("House : " + information.getHouseNo());
+                                    mPhone.setText("Contact: " + information.getPhone());
+                                    mArea.setText("Area: " + information.getArea());
+                                    mEmail.setText("Email: " + user.getEmail());
+                                    bitmap = StringToBitMap(information.getImage());
+                                    profilePic.setImageBitmap(bitmap);
+                                }
+                                catch (Exception e)
+                                {
+                                    Intent intent = new Intent(getActivity(), UploadOwnerInfo.class);
+                                    getActivity().startActivity(intent);
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
+                    }
+
                 }
-                else if (status.getOwner().equals("owner"))
-                {
-                    ownerScrollView.setVisibility(View.VISIBLE);
-                    databaseReference2 = FirebaseDatabase.getInstance().getReference("User").child("owner").child(user.getUid());
-                    databaseReference2.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
 
-                            UserInformation information = dataSnapshot.getValue(UserInformation.class);
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-                            try {
-                                userName.setText("Name: " + information.getUserName());
-                                mRoad.setText("Road : " + information.getRoad());
-                                mHouseNumber.setText("House : " + information.getHouseNo());
-                                mPhone.setText("Contact: " + information.getPhone());
-                                mArea.setText("Area: " + information.getArea());
-                                mEmail.setText("Email: " + user.getEmail());
-                                bitmap = StringToBitMap(information.getImage());
-                                profilePic.setImageBitmap(bitmap);
-                            }
-                            catch (Exception e)
-                            {
-                                Intent intent = new Intent(getActivity(), UploadOwnerInfo.class);
-                                getActivity().startActivity(intent);
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
                 }
+            });
+        }
+        catch (Exception e)
+        {
 
-            }
+        }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
         wishList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), YourWishList.class);
+               if (user==null)
+               {
+                   Intent intent = new Intent(getActivity(), Login.class);
+                   getActivity().startActivity(intent);
+                   login.setVisibility(View.GONE);
+                   getActivity().finish();
+               }else
+               {
+                   Intent intent = new Intent(getActivity(), YourWishList.class);
+                   getActivity().startActivity(intent);
+               }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Login.class);
                 getActivity().startActivity(intent);
+                login.setVisibility(View.GONE);
+                getActivity().finish();
             }
         });
 

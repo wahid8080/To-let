@@ -30,14 +30,14 @@ public class Login extends AppCompatActivity {
 
 
     private EditText mEmail, mPassword;
-    private RelativeLayout layout1;
+
     private ImageView mCoverImage;
-    private TextView textView;
+
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog1;
-
+    private TextView textView;
     Animation upDawn,downUp;
-
+    private RelativeLayout layout1;
 
 
     Handler handler = new Handler();

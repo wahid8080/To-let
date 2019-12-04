@@ -42,6 +42,10 @@ public class Empty extends AppCompatActivity {
                 {
                     startActivity(new Intent(Empty.this, MainActivity.class));
                 }
+                 else
+                {
+                    startActivity(new Intent(Empty.this, MainActivity.class));
+                }
                  finish();
             }
 

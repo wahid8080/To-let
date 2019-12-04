@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.goolemap.Authorization.Login;
 import com.example.goolemap.Model.Status;
 import com.example.goolemap.UploadData.UploadInfoForBooking;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -167,28 +168,38 @@ public class FaceRoomOrFlat extends AppCompatActivity {
 
     public void booking(View view) {
 
-        if (book.equals("Book Now"))
+        if (user.equals(null))
         {
-
-            Intent intent = new Intent(FaceRoomOrFlat.this, UploadInfoForBooking.class);
-            intent.putExtra("flatNo",flatNo);
-            intent.putExtra("uId",uId);
-            intent.putExtra("key",key);
-            intent.putExtra("houseName",nameOfHouse);
-            startActivity(intent);
-            finish();
-        } else if (book.equals("Booked"))
-        {
-            DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference("UploadData").child(key).child(flatNo + uId).child("customerId");
-            databaseReference3.setValue("");
-            DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("UploadData").child(key).child(flatNo + uId).child("bookStatus");
-            databaseReference2.setValue("Book Now");
-            DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference("BookingStatus").child(uId).child(flatNo).child("bookingStatus");
-            databaseReference4.setValue("Cancel booking");
-
-            startActivity(new Intent(FaceRoomOrFlat.this,MainActivity.class));
+            startActivity(new Intent(FaceRoomOrFlat.this, Login.class));
             finish();
         }
+        else
+        {
+            if (book.equals("Book Now"))
+            {
+
+                Intent intent = new Intent(FaceRoomOrFlat.this, UploadInfoForBooking.class);
+                intent.putExtra("flatNo",flatNo);
+                intent.putExtra("uId",uId);
+                intent.putExtra("key",key);
+                intent.putExtra("houseName",nameOfHouse);
+                startActivity(intent);
+                finish();
+            } else if (book.equals("Booked"))
+            {
+                DatabaseReference databaseReference3 = FirebaseDatabase.getInstance().getReference("UploadData").child(key).child(flatNo + uId).child("customerId");
+                databaseReference3.setValue("");
+                DatabaseReference databaseReference2 = FirebaseDatabase.getInstance().getReference("UploadData").child(key).child(flatNo + uId).child("bookStatus");
+                databaseReference2.setValue("Book Now");
+                DatabaseReference databaseReference4 = FirebaseDatabase.getInstance().getReference("BookingStatus").child(uId).child(flatNo).child("bookingStatus");
+                databaseReference4.setValue("Cancel booking");
+
+                startActivity(new Intent(FaceRoomOrFlat.this,MainActivity.class));
+                finish();
+            }
+
+        }
+
 
 
 

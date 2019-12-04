@@ -16,7 +16,8 @@
         android:roundIcon="@drawable/easy_rent"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".YourWishList"></activity>
+        <activity android:name=".Authorization.Login"></activity>
+        <activity android:name=".YourWishList" />
         <activity android:name=".YourRentOwner" />
         <activity android:name=".UploadData.UploadInfoForBooking" />
 
@@ -35,7 +36,7 @@
         <activity android:name=".YourRent" />
         <activity android:name=".Authorization.Registration" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".Authorization.Login">
+        <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

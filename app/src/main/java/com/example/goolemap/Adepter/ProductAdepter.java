@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.goolemap.Authorization.Login;
 import com.example.goolemap.FaceRoomOrFlat;
 import com.example.goolemap.Model.UploadRoomFlat;
 import com.example.goolemap.R;
@@ -68,10 +69,17 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.favouriteImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference mFavourite = FirebaseDatabase.getInstance().getReference("FavouriteProduct").child(user.getUid()).push();
-                //String randomId = mFavourite;
-                UploadRoomFlat mFavouriteData = new UploadRoomFlat(roomFlat.getImage1(),roomFlat.getPrice(),roomFlat.getArea(),roomFlat.getPhoneNumber());
-                mFavourite.setValue(mFavouriteData);
+               if (user.equals(null))
+               {
+                   Intent intent = new Intent(context, Login.class);
+                   context.startActivity(intent);
+               } else
+               {
+                   DatabaseReference mFavourite = FirebaseDatabase.getInstance().getReference("FavouriteProduct").child(user.getUid()).push();
+                   //String randomId = mFavourite;
+                   UploadRoomFlat mFavouriteData = new UploadRoomFlat(roomFlat.getImage1(),roomFlat.getPrice(),roomFlat.getArea(),roomFlat.getPhoneNumber());
+                   mFavourite.setValue(mFavouriteData);
+               }
             }
         });
 
