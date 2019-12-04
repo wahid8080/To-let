@@ -22,7 +22,6 @@ public class YourRent extends AppCompatActivity {
     RecyclerView recyclerViewForFlat;
     FirebaseUser user;
     ArrayList<BookingInformation> bookingInformationArrayList;
-
     BookingAdepter bookingAdepter;
 
 

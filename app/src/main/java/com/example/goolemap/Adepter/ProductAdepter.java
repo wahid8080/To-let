@@ -20,6 +20,8 @@ import com.example.goolemap.Model.UploadRoomFlat;
 import com.example.goolemap.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -63,6 +65,15 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.progressBar.setVisibility(View.GONE);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        myViewHolder.favouriteImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference mFavourite = FirebaseDatabase.getInstance().getReference("FavouriteProduct").child(user.getUid()).push();
+                //String randomId = mFavourite;
+                UploadRoomFlat mFavouriteData = new UploadRoomFlat(roomFlat.getImage1(),roomFlat.getPrice(),roomFlat.getArea(),roomFlat.getPhoneNumber());
+                mFavourite.setValue(mFavouriteData);
+            }
+        });
 
 
         myViewHolder.seeDetailsOnClick.setOnClickListener(new View.OnClickListener() {
@@ -72,12 +83,9 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
                 intent.putExtra("houseName", roomFlat.getHouseName());
                 intent.putExtra("price", roomFlat.getPrice());
                 intent.putExtra("area", roomFlat.getArea());
-
                 intent.putExtra("other", roomFlat.getOther());
                 intent.putExtra("family", roomFlat.getFamily());
                 intent.putExtra("bachelor", roomFlat.getBachelor());
-
-
                 intent.putExtra("details", roomFlat.getDetails());
                 intent.putExtra("road", roomFlat.getRoadNo());
                 intent.putExtra("phone", roomFlat.getPhoneNumber());
@@ -105,7 +113,7 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView flatImg;
+        ImageView flatImg,favouriteImage;
         TextView houseName, price, area;
         Button seeDetailsOnClick;
         ProgressBar progressBar;
@@ -119,6 +127,7 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
             area = itemView.findViewById(R.id.houseArea);
             seeDetailsOnClick = itemView.findViewById(R.id.seeMore);
             progressBar = itemView.findViewById(R.id.imageForViewProduct);
+            favouriteImage = itemView.findViewById(R.id.favouriteList);
 
 
         }

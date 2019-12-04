@@ -56,7 +56,7 @@ public class UploadRoomOrFlat extends AppCompatActivity {
 
 
         price = findViewById(R.id.housePrice);
-        mImg1 = findViewById(R.id.image1);
+        mImg1 = findViewById(R.id.image1_id);
         mImg2 = findViewById(R.id.image2);
         mImg3 = findViewById(R.id.image3);
         mImg4 = findViewById(R.id.image4);

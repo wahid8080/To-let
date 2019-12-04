@@ -32,6 +32,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp">
 
+
                 <ProgressBar
                     android:id="@+id/imageForViewProduct"
                     android:layout_width="100dp"
@@ -43,6 +44,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/favouriteList"
+                    android:layout_margin="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_like"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"/>
             </RelativeLayout>
             <!-- here Flat Details -->
             <LinearLayout

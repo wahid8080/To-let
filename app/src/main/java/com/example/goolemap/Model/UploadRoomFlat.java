@@ -14,11 +14,17 @@ public class UploadRoomFlat {
 
     }
 
+    public UploadRoomFlat(String image1, String price, String area, String phoneNumber) {
+        this.image1 = image1;
+        this.price = price;
+        this.area = area;
+        this.phoneNumber = phoneNumber;
+    }
 
     public UploadRoomFlat(String family, String bachelor, String other, String razuk, String get, String internet,
                           String genarator, String water, String image1, String image2, String image3, String image4,
                           String price, String houseName, String area, String roadNo, String houseNumber, String details,
-                          String phoneNumber, double latitute, double longatitute,String roomFlatNo,
+                          String phoneNumber, double latitute, double longatitute, String roomFlatNo,
                           String uId, String bookStatus, String customerId) {
         this.family = family;
         this.bachelor = bachelor;
