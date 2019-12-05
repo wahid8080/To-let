@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.goolemap.Adepter.ProductAdepter;
 import com.example.goolemap.Adepter.WishListAdepter;
 import com.example.goolemap.Model.UploadRoomFlat;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,7 +26,7 @@ public class YourWishList extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<UploadRoomFlat> uploadRoomFlatArrayList;
     FirebaseUser user;
-    WishListAdepter wishListAdepter;
+    ProductAdepter wishListAdepter;
 
 
     @Override
@@ -39,7 +40,7 @@ public class YourWishList extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("FavouriteProduct").child(user.getUid());
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("FavoriteList").child(user.getUid());
 
         mData.addValueEventListener(new ValueEventListener() {
             @Override
@@ -52,7 +53,7 @@ public class YourWishList extends AppCompatActivity {
                     uploadRoomFlatArrayList.add(uploadRoomFlat);
                 }
 
-                wishListAdepter = new WishListAdepter(YourWishList.this,uploadRoomFlatArrayList);
+                wishListAdepter = new ProductAdepter(YourWishList.this,uploadRoomFlatArrayList,"wish_list");
                 recyclerView.setAdapter(wishListAdepter);
 
             }

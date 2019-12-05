@@ -66,6 +66,12 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.progressBar.setVisibility(View.GONE);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        if (key.equals("wish_list"))
+        {
+            myViewHolder.favouriteImage.setVisibility(View.GONE);
+            myViewHolder.favotetRemove.setVisibility(View.VISIBLE);
+        }
+
         myViewHolder.favouriteImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,16 +81,28 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
                    context.startActivity(intent);
                } else
                {
-                   DatabaseReference mFavourite = FirebaseDatabase.getInstance().getReference("FavouriteProduct").child(user.getUid()).push();
-                   //String randomId = mFavourite;
-                   UploadRoomFlat mFavouriteData = new UploadRoomFlat(roomFlat.getImage1(),roomFlat.getPrice(),roomFlat.getArea(),roomFlat.getPhoneNumber());
-                   mFavourite.setValue(mFavouriteData);
+
+                   DatabaseReference mFavourite = FirebaseDatabase.getInstance().getReference("FavoriteList").child(user.getUid()).child(String.valueOf(roomFlat.getRoomFlatNo()));
+                   UploadRoomFlat uploadRoomFlat = new UploadRoomFlat(roomFlat.getFamily(),roomFlat.getBachelor(),roomFlat.getOther(),roomFlat.getRazuk(),roomFlat.getGet(),roomFlat.getInternet(),roomFlat.getGenarator(),
+                           roomFlat.getWater(),roomFlat.getImage1(),roomFlat.getImage2(),roomFlat.getImage3(),roomFlat.getImage4(),roomFlat.getPrice(),roomFlat.getHouseName(),roomFlat.getArea(),roomFlat.getRoadNo(),roomFlat.getHouseNumber(),roomFlat.getDetails(),roomFlat.getPhoneNumber(),roomFlat.getLatitute(),roomFlat.getLongatitute(),roomFlat.getRoomFlatNo(),user.getUid(),"Book Now","");
+                   mFavourite.setValue(uploadRoomFlat);
 
                    int image = R.drawable.ic_liked;
                    myViewHolder.favouriteImage.setImageResource(image);
                }
             }
         });
+
+        myViewHolder.favotetRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DatabaseReference mData = FirebaseDatabase.getInstance().getReference("FavoriteList").child(user.getUid()).child(String.valueOf(roomFlat.getRoomFlatNo()));
+                mData.removeValue();
+                removeAt(i);
+            }
+        });
+
 
 
         myViewHolder.seeDetailsOnClick.setOnClickListener(new View.OnClickListener() {
@@ -128,13 +146,20 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
 
     }
 
+    public void removeAt(int position) {
+        uploadRoomFlatsList.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, uploadRoomFlatsList.size());
+    }
+
+
     @Override
     public int getItemCount() {
         return uploadRoomFlatsList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView flatImg,favouriteImage;
+        ImageView flatImg,favouriteImage,favotetRemove;
         TextView houseName, price, area;
         Button seeDetailsOnClick;
         ProgressBar progressBar;
@@ -149,6 +174,7 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
             seeDetailsOnClick = itemView.findViewById(R.id.seeMore);
             progressBar = itemView.findViewById(R.id.imageForViewProduct);
             favouriteImage = itemView.findViewById(R.id.favouriteList);
+            favotetRemove = itemView.findViewById(R.id.favouriteRemove);
 
 
         }

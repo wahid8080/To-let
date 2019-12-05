@@ -34,7 +34,7 @@ public class LatLong {
         return houseName;
     }
 
-    public void setHouseName(String houseName) {
+    public void setHouseName(String houseName)  {
         this.houseName = houseName;
     }
 }
