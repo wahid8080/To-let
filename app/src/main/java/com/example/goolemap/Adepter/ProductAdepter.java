@@ -66,7 +66,11 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.progressBar.setVisibility(View.GONE);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (key.equals("wish_list"))
+        if (key!="wish_list")
+        {
+            myViewHolder.favouriteImage.setVisibility(View.VISIBLE);
+            myViewHolder.favotetRemove.setVisibility(View.GONE);
+        } else
         {
             myViewHolder.favouriteImage.setVisibility(View.GONE);
             myViewHolder.favotetRemove.setVisibility(View.VISIBLE);

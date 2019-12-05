@@ -85,7 +85,6 @@ public class FragmentRoom extends Fragment {
                 {
                     Intent intent = new Intent(getActivity(), Login.class);
                     getActivity().startActivity(intent);
-                    getActivity().finish();
                 } else
                 {
                     Intent intent = new Intent(getActivity(), UploadRoomOrFlat.class);

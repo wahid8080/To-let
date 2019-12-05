@@ -193,7 +193,6 @@ public class FragmentHome extends Fragment {
                {
                    Intent intent = new Intent(getActivity(), Login.class);
                    getActivity().startActivity(intent);
-                   getActivity().finish();
                }else
                {
                    Intent intent = new Intent(getActivity(), YourWishList.class);
