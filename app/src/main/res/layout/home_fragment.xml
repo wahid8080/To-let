@@ -114,16 +114,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <Button
-                                    android:visibility="gone"
-                                    android:text="Login"
-                                    android:textAllCaps="false"
-                                    android:textColor="@color/colorWhite"
-                                    android:layout_margin="5dp"
-                                    android:background="@drawable/btn_background"
-                                    android:id="@+id/loginButtonId"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"/>
 
                                 <Button
                                     android:textColor="@color/colorWhite"

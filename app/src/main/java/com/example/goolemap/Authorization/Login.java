@@ -8,6 +8,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -18,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.goolemap.Empty;
-import com.example.goolemap.MainActivity;
 import com.example.goolemap.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +38,11 @@ public class Login extends AppCompatActivity {
     private TextView textView;
     Animation upDawn,downUp;
     private RelativeLayout layout1;
+    private FirebaseUser user;
+
+    private String goLoginPage="";
+
+    private Button registrationId;
 
 
     Handler handler = new Handler();
@@ -58,8 +63,19 @@ public class Login extends AppCompatActivity {
 
         mEmail = findViewById(R.id.emailForLogin);
         mPassword = findViewById(R.id.passwordForLogin);
-        mCoverImage = findViewById(R.id.imageViewId);
+        mCoverImage = findViewById(R.id.goId);
         mAuth = FirebaseAuth.getInstance();
+
+        registrationId = findViewById(R.id.registrationId);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        goLoginPage = getIntent().getStringExtra("loginPage");
+
+        if (goLoginPage!=null)
+        {
+            registrationId.setVisibility(View.GONE);
+        }
 
         textView = findViewById(R.id.footer);
         layout1 = findViewById(R.id.relative1Id);
@@ -71,8 +87,6 @@ public class Login extends AppCompatActivity {
 
         mCoverImage.setAnimation(upDawn);
         textView.setAnimation(downUp);
-
-
 
     }
 

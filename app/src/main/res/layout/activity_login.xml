@@ -9,7 +9,7 @@
 
     <ImageView
         android:layout_centerInParent="true"
-        android:id="@+id/imageViewId"
+        android:id="@+id/goId"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/easy_rent"
@@ -95,6 +95,7 @@
                     android:layout_marginBottom="10dp"/>
 
                 <Button
+                    android:id="@+id/registrationId"
                     android:textSize="16dp"
                     android:textAllCaps="false"
                     android:layout_width="match_parent"

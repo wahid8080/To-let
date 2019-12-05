@@ -55,7 +55,7 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int i) {
+    public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
 
         final UploadRoomFlat roomFlat = uploadRoomFlatsList.get(i);
         myViewHolder.houseName.setText(roomFlat.getHouseName());
@@ -69,7 +69,7 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.favouriteImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if (user.equals(null))
+               if (user==null)
                {
                    Intent intent = new Intent(context, Login.class);
                    context.startActivity(intent);
@@ -79,6 +79,9 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
                    //String randomId = mFavourite;
                    UploadRoomFlat mFavouriteData = new UploadRoomFlat(roomFlat.getImage1(),roomFlat.getPrice(),roomFlat.getArea(),roomFlat.getPhoneNumber());
                    mFavourite.setValue(mFavouriteData);
+
+                   int image = R.drawable.ic_liked;
+                   myViewHolder.favouriteImage.setImageResource(image);
                }
             }
         });
@@ -87,26 +90,36 @@ public class ProductAdepter extends RecyclerView.Adapter<ProductAdepter.MyViewHo
         myViewHolder.seeDetailsOnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, FaceRoomOrFlat.class);
-                intent.putExtra("houseName", roomFlat.getHouseName());
-                intent.putExtra("price", roomFlat.getPrice());
-                intent.putExtra("area", roomFlat.getArea());
-                intent.putExtra("other", roomFlat.getOther());
-                intent.putExtra("family", roomFlat.getFamily());
-                intent.putExtra("bachelor", roomFlat.getBachelor());
-                intent.putExtra("details", roomFlat.getDetails());
-                intent.putExtra("road", roomFlat.getRoadNo());
-                intent.putExtra("phone", roomFlat.getPhoneNumber());
-                intent.putExtra("img1", roomFlat.getImage1());
-                intent.putExtra("img2", roomFlat.getImage2());
-                intent.putExtra("img3", roomFlat.getImage3());
-                intent.putExtra("img4", roomFlat.getImage4());
-                intent.putExtra("book",roomFlat.getBookStatus());
-                intent.putExtra("customerId",roomFlat.getCustomerId());
-                intent.putExtra("flatNo",roomFlat.getRoomFlatNo());
-                intent.putExtra("key",key);
-                intent.putExtra("uId",roomFlat.getuId());
-                context.startActivity(intent);
+
+
+                if (user==null)
+                {
+                    Intent intent = new Intent(context, Login.class);
+                    context.startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(context, FaceRoomOrFlat.class);
+                    intent.putExtra("houseName", roomFlat.getHouseName());
+                    intent.putExtra("price", roomFlat.getPrice());
+                    intent.putExtra("area", roomFlat.getArea());
+                    intent.putExtra("other", roomFlat.getOther());
+                    intent.putExtra("family", roomFlat.getFamily());
+                    intent.putExtra("bachelor", roomFlat.getBachelor());
+                    intent.putExtra("details", roomFlat.getDetails());
+                    intent.putExtra("road", roomFlat.getRoadNo());
+                    intent.putExtra("phone", roomFlat.getPhoneNumber());
+                    intent.putExtra("img1", roomFlat.getImage1());
+                    intent.putExtra("img2", roomFlat.getImage2());
+                    intent.putExtra("img3", roomFlat.getImage3());
+                    intent.putExtra("img4", roomFlat.getImage4());
+                    intent.putExtra("book",roomFlat.getBookStatus());
+                    intent.putExtra("customerId",roomFlat.getCustomerId());
+                    intent.putExtra("flatNo",roomFlat.getRoomFlatNo());
+                    intent.putExtra("key",key);
+                    intent.putExtra("uId",roomFlat.getuId());
+                    context.startActivity(intent);
+                }
+
 
 
             }

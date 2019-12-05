@@ -53,7 +53,7 @@ public class FragmentHome extends Fragment {
     private ImageView profilePicRenter;
     private TextView district, thana, phone, email, nid, userNameRenter;
     private Bitmap bitmapRenter;
-    private Button button,button4,wishList,login;
+    private Button button,button4,wishList;
 
 
     public FragmentHome() {
@@ -68,11 +68,7 @@ public class FragmentHome extends Fragment {
         profilePic = v.findViewById(R.id.ProfilePicIdForOwner);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        login = v.findViewById(R.id.loginButtonId);
-        if (user == null)
-        {
-            login.setVisibility(View.VISIBLE);
-        }
+
         mArea = v.findViewById(R.id.ownerAreaid);
         mRoad = v.findViewById(R.id.ownerRoadNoId);
         mHouseNumber = v.findViewById(R.id.ownerHouseId);
@@ -197,7 +193,6 @@ public class FragmentHome extends Fragment {
                {
                    Intent intent = new Intent(getActivity(), Login.class);
                    getActivity().startActivity(intent);
-                   login.setVisibility(View.GONE);
                    getActivity().finish();
                }else
                {
@@ -207,15 +202,7 @@ public class FragmentHome extends Fragment {
             }
         });
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Login.class);
-                getActivity().startActivity(intent);
-                login.setVisibility(View.GONE);
-                getActivity().finish();
-            }
-        });
+
 
 
         button.setOnClickListener(new View.OnClickListener() {

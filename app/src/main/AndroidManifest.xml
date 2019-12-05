@@ -16,7 +16,7 @@
         android:roundIcon="@drawable/easy_rent"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Authorization.Login"></activity>
+        <activity android:name=".Authorization.Login"/>
         <activity android:name=".YourWishList" />
         <activity android:name=".YourRentOwner" />
         <activity android:name=".UploadData.UploadInfoForBooking" />
